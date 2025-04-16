@@ -143,6 +143,78 @@ console.log(getInfo(1, 2, 3, 4, 5, 6)); // Laura Anderson
 
 const personArray = [
   { name: "John", age: 30, country: "USA" },
+  { name: "Laura", age: 44, country: "USA" },
   { name: "Jane", age: 25, country: "India" },
   { name: "Mike", age: 35, country: "England" },
 ];
+
+let getAllNames = personArray.map((singlePerson, index) => {
+  console.log(singlePerson, index);
+  return `${singlePerson.name} age is ${singlePerson.age} and lives in ${singlePerson.country}`; // singlePerson.name;
+});
+
+console.log(getAllNames); // [ 'John', 'Jane', 'Mike' ]
+console.log(getAllNames[0]); // John
+
+let getPersonFromUSA = personArray.find((singlePerson) => {
+  return singlePerson.country === "USA";
+});
+
+console.log(getPersonFromUSA); // [ { name: 'John', age: 30, country: 'USA' } ]
+
+let getPersonsFromUSA = personArray.filter((singlePerson) => {
+  return singlePerson.country === "USA";
+});
+
+console.log(getPersonsFromUSA); // [ { name: 'John', age: 30, country: 'USA' } ]
+
+let checkSomeArraryMethodWithExample = personArray.some((singlePerson) => {
+  return singlePerson.age > 40;
+});
+
+console.log(checkSomeArraryMethodWithExample); // true
+
+let checkEveryArraryMethodWithExample = personArray.every((singlePerson) => {
+  return singlePerson.age > 40;
+});
+
+console.log(checkEveryArraryMethodWithExample); // false
+
+const fruitsArray = ["apple", "banana", "orange", "grape", "kiwi"];
+
+console.log(fruitsArray.includes("banana")); // true
+console.log(fruitsArray.includes("mango")); // false
+console.log(fruitsArray.indexOf("banana")); // 1
+console.log(fruitsArray.indexOf("mango")); // -1
+console.log(fruitsArray.lastIndexOf("banana")); // 1
+
+let getIndexOfPersonWhoISFromUSA = personArray.findIndex((singlePerson) => {
+  return singlePerson.country === "India";
+});
+
+console.log(getIndexOfPersonWhoISFromUSA); // 0
+
+//////////////////////////
+let getListOfProductsElement = document.querySelector(".list-of-products");
+
+function renderProducts(getProducts) {
+  getListOfProductsElement.innerHTML = getProducts
+    .map((singleProductItem) => `<p>${singleProductItem.title}</p>`)
+    .join(" ");
+}
+
+//fetching data from API
+async function fetchListOfProducts() {
+  try {
+    const apiResponse = await fetch("https://dummyjson.com/products", {
+      method: "GET",
+    });
+    const result = await apiResponse.json();
+    console.log(result);
+    if (result?.products?.length > 0) renderProducts(result?.products);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+fetchListOfProducts();
