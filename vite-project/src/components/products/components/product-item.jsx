@@ -2,10 +2,10 @@ function ButtonComponent() {
   return <button>Buy Now</button>;
 }
 
-function ProductItem() {
+function ProductItem({ singleProductItem, key }) {
   return (
-    <div>
-      <h4>Product 1</h4>
+    <div key={key}>
+      <h4>{singleProductItem}</h4>
       <ButtonComponent />
     </div>
   );

@@ -1,14 +1,16 @@
 import ProductItem from "./components/product-item";
 
-function ProductList({ dummyProductData }) {
+function ProductList({ listOfProducts }) {
+  //dummyProductData){{
   return (
     <div>
       <h3>ECommerce Project</h3>
       {/*<ProductItem />*/}
-
-      {dummyProductData.map((item, index) => (
-        <li key={index}>{item}</li>
-      ))}
+      <ul>
+        {listOfProducts.map((item, index) => (
+          <ProductItem singleProductItem={item} key={index}></ProductItem>
+        ))}
+      </ul>
     </div>
   );
 }
