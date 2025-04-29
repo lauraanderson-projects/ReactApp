@@ -1,10 +1,11 @@
 import ProductItem from "./components/product-item";
+import "./style.css";
 
 function ProductList({ listOfProducts }) {
   //dummyProductData){{
   return (
     <div>
-      <h3>ECommerce Project</h3>
+      <h3 className="title">ECommerce Project</h3>
       {/*<ProductItem />*/}
       <ul>
         {listOfProducts.map((item, index) => (
