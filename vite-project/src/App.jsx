@@ -8,9 +8,9 @@ function App() {
   return (
     <div>
       <h1>hello</h1>
-      <ClassBasedComponent />
+      {/*<ClassBasedComponent />*/}
       {/*<FunctionalComponent />*/}
-      {/*<ProductList listOfProducts={dummyProductData} />*/}
+      <ProductList listOfProducts={dummyProductData} />
     </div>
   );
 }
