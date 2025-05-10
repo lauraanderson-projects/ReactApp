@@ -1,11 +1,21 @@
+import { useState } from "react";
 import { loginFormElements } from "../../config";
 import CommonForm from "../common-form";
 
 function LoginComponent() {
+  const [loginFormData, setLoginFormData] = useState({
+    email: "",
+    password: "",
+  });
+
   return (
     <div>
       <h1>Login Component</h1>
-      <CommonForm formControls={loginFormElements} />
+      <CommonForm
+        formData={loginFormData}
+        setFormData={setLoginFormData}
+        formControls={loginFormElements}
+      />
     </div>
   );
 }
